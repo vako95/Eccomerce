@@ -1,14 +1,22 @@
 from django.contrib import admin
 from django.utils.html import mark_safe, format_html
 from django.templatetags.static import static
-from ..models import Product
+from ..models import Product, ProductImage
 
 
+class ProductImageInline(admin.TabularInline):  
+    model = ProductImage
+    extra = 1 
+    min_num = 0
+    max_num = 4
+    fields = ("image", "alt_text", "is_main", "order")
+    readonly_fields = ("uploaded_at",)
     
 
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
+    inlines = [ProductImageInline]
     list_display = ("title_tag","slug_with_link","poster_tag", "price_tag", "discount_tag", "tax_tag","final_price_tag","created_tag", "updated_tag","status")
     list_display_links = ("title_tag",)
     list_editable = ("status",)

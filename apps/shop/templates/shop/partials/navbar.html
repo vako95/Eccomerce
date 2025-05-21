@@ -1,5 +1,14 @@
 {% load static %}
 {% load active_link %}
+{% if messages %}
+<div id="custom-messages">
+  {% for message in messages %}
+    <div class="custom-alert {{ message.tags }}">
+      {{ message }}
+    </div>
+  {% endfor %}
+</div>
+{% endif %}
 <div class="main-navigation">
     <nav class="navbar navbar-expand-lg">
         <div class="container position-relative">

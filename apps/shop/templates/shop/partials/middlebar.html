@@ -37,7 +37,13 @@
                 <div class="header-middle-right">
                     <ul class="header-middle-list">
                         <li><a href="index.html#" class="list-item"><i class="far fa-user-circle"></i></a></li>
-                        <li><a href="index.html#" class="list-item"><i class="far fa-arrows-rotate"></i><span>0</span></a></li>
+                        <li>
+                            {% if request.user.is_authenticated %}
+                            <li><a title="logout" href="{% url 'shop:logout' %}" class="list-item"><i class="fa-solid fa-person-walking-arrow-right"></i></a></li>
+                            {% else %}
+                            <li><a title="login" href="{% url 'shop:login' %}" class="list-item"><i class="fa-solid fa-user-injured"></i></a></li>
+                            {% endif %}
+                        </li>
                         <li><a href="index.html#" class="list-item"><i class="far fa-heart"></i><span>0</span></a></li>
                         <li class="dropdown-cart">
                             <a href="index.html#" class="shop-cart list-item"><i class="far fa-shopping-bag"></i>

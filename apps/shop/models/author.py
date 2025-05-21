@@ -8,6 +8,23 @@ class Author(models.Model):
         ('O', 'Other'),
     ]
 
+    username = models.CharField(
+        max_length=150,
+        unique=True,
+        verbose_name="Username",
+        help_text="Enter username"
+    )
+    password = models.CharField(
+        max_length=128,
+        verbose_name="Password",
+        help_text="Enter your password"
+    )
+    email = models.EmailField(
+        max_length=250,
+        unique=True,
+        verbose_name="Email",
+        help_text="Enter your email"
+    )
     name = models.CharField(
         max_length=150,
         null=False,

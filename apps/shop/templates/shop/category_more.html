@@ -1,0 +1,95 @@
+{% extends "shop/layouts/base.html" %}
+{% load static %}
+
+{% block content %}
+    <main class="main">
+
+        <!-- breadcrumb -->
+        <div class="site-breadcrumb">
+            <div class="site-breadcrumb-bg" style="background: url(assets/img/breadcrumb/01.jpg)"></div>
+            <div class="container">
+                <div class="site-breadcrumb-wrap">
+                    <h4 class="breadcrumb-title">Category Two</h4>
+                    <ul class="breadcrumb-menu">
+                        <li><a href="index.html"><i class="far fa-home"></i> Home</a></li>
+                        <li class="active">Category Two</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumb end -->
+
+
+        <!-- category area -->
+        <div class="category-area2 py-90">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 mx-auto">
+                        <div class="site-heading text-center">
+                            <span class="site-title-tagline">Our Category</span>
+                            <h2 class="site-title">Browse Product By <span>Category</span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {% for cat_all in category_all %}
+                    <div class="col-6 col-md-4 col-lg-2">
+                        <div class="category-item">
+                            <a href="{{ cat_all.get_absolute_url }}">
+                                <div class="category-info">
+                                    <div class="icon">
+                                        {% if cat_all.image %}
+                                        <img src="{{ cat_all.image.url }}" alt="">
+                                        {% else %}
+                                        <img src="{% static 'shop/assets/img/icon/no_image.svg' %}" alt="">
+                                        {% endif %}
+                                    </div>
+                                    <div class="content">
+                                        <h4>{{ cat_all.name }} </h4>
+                                        <p>{{ cat_all.product_count }} Items</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- category area end-->
+
+
+        <!-- newsletter area -->
+        <div class="newsletter-area pt-60 pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 mx-auto">
+                        <div class="newsletter-content">
+                            <h3>Get <span>20%</span> Off Discount Coupon</h3>
+                            <p>By Subscribe Our Newsletter</p>
+                            <div class="subscribe-form">
+                                <form action="category-2.html#">
+                                    <input type="email" class="form-control" placeholder="Your Valid Email Address">
+                                    <button class="theme-btn" type="submit">
+                                        Subscribe <i class="far fa-paper-plane"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="newsletter-img-1">
+                <img src="assets/img/newsletter/01.png" alt="">
+            </div>
+            <div class="newsletter-img-2">
+                <img src="assets/img/newsletter/02.png" alt="">
+            </div>
+        </div>
+        <!-- newsletter area end -->
+
+    </main>
+{% endblock %}    
+
+
+   

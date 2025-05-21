@@ -1,4 +1,4 @@
-from .product_admin import Product
+from .product_admin import Product, ProductImage
 from .author_admin import Author
 from .category_admin import Category
 from .brand_admin import Brand

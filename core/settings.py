@@ -27,8 +27,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.shop.apps.ShopConfig'
+    'apps.shop.apps.ShopConfig',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -120,6 +123,16 @@ STATICFILES_ROOT = 'staticfiles/'
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    "default": {
+        "toolbar": "full",
+    }
+}
+
+SILENCED_SYSTEM_CHECKS = ["ckeditor.W001"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

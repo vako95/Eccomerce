@@ -1714,6 +1714,7 @@ label {
 
 /* main category */
 .main-category{
+  display: none;
   position: absolute;
   left: 0;
   top: 63px;
@@ -10145,6 +10146,8 @@ label {
   background: transparent;
   border: 1px solid var(--border-info-color);
 }
+
+
 
 
 

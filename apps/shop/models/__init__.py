@@ -1,4 +1,4 @@
-from .product import Product
+from .product import Product, ProductImage
 from .author import Author
 from .category import Category
 from .brand import Brand

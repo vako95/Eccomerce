@@ -426,9 +426,31 @@ Version         : 1.1
 
 })(jQuery);
 
+// ============================ для логина
+function toogle_field(){
+let input = document.getElementById("password_field")
+let btn = document.querySelector("#password-field_btn")
+
+if(input.type === "password"){
+    input.type = "text"
+    btn.textContent = "😊"
+}
+else{
+    input.type = "password"
+    btn.textContent = "😌"
+}
+}
 
 
-
+// ============================= если уже логин временное опопвещение 
+setTimeout(() => {
+    const container = document.getElementById('custom-messages');
+    if (container) {
+      container.style.transition = 'opacity 1.5s ease-out';
+      container.style.opacity = '0';
+      setTimeout(() => container.remove(), 1500);
+    }
+  }, 8000);
 
 
 

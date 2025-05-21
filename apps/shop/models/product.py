@@ -6,7 +6,8 @@ from .author import Author
 from .category import Category
 from .brand import Brand
 from .tag import Tag
-from PIL import Image  
+from django.core.validators import FileExtensionValidator
+from ckeditor_uploader.fields import RichTextUploadingField
 
 class Product(models.Model):
     title = models.CharField(
@@ -24,12 +25,13 @@ class Product(models.Model):
         verbose_name="Slug",
         help_text="Automatically generated based on the Title.",
     )
-    content = models.TextField(
+    content = RichTextUploadingField(
         null=False,
         blank=True,
         verbose_name="Content",
         help_text="Content about product"
     )
+     
     poster = models.FileField(
         upload_to="%Y/%m/%d/",
         validators=[
@@ -145,7 +147,53 @@ class Product(models.Model):
         verbose_name = "Product"
         verbose_name_plural = "Products"
         ordering = ("-created_at",)
-    
+
+
+
+
+class ProductImage(models.Model):
+    product = models.ForeignKey(
+        "Product",  # or import directly if needed
+        related_name="images",
+        on_delete=models.CASCADE,
+        verbose_name="Product",
+    )
+    image = models.ImageField(
+        upload_to="product/gallery/%Y/%m/%d/",
+        validators=[
+            FileExtensionValidator(allowed_extensions=["svg", "png", "jpg", "jpeg"])
+        ],
+        verbose_name="Image",
+    )
+    alt_text = models.CharField(
+        max_length=255,
+        blank=True,
+        verbose_name="Alt Text",
+        help_text="Text for SEO and accessibility (alt attribute)",
+    )
+    is_main = models.BooleanField(
+        default=False,
+        verbose_name="Main Image",
+        help_text="Check if this is the primary image for the product",
+    )
+    order = models.PositiveIntegerField(
+        default=0,
+        verbose_name="Display Order",
+        help_text="Controls the display order of the images",
+    )
+    uploaded_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name="Uploaded At",
+    )
+
+    class Meta:
+        verbose_name = "Product Image"
+        verbose_name_plural = "Product Images"
+        ordering = ["order"] 
+
+    def __str__(self):
+        return f"{self.product.title} - Image ({self.id})"
+   
     
 
 

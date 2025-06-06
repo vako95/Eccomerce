@@ -1,5 +1,5 @@
 from .author_admin import AuthorAdmin
-from .product_admin import ProductAdmin
+from .product_admin import ProductAdmin, ProductByPriceAdmin, SalesProductAdmin
 from .product_gallery_admin import ProductGalleryInline
 from .social_network_admin import SocialNetworkAdmin
 from .brand_admin import BrandAdmin

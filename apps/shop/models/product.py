@@ -90,4 +90,18 @@ class Product(models.Model):
         verbose_name_plural = "Products"
         ordering = ("-created_at",)
 
+
+class ProductByPrice(Product):
+    class Meta:
+        proxy = True
+        ordering = ['-price'] 
+
+
+    def is_expensive(self):
+        return self.price > 1000
     
+class SalesProduct(Product):  # Наследуемся от Product
+    class Meta:
+        verbose_name = "Endirimli Mehsullar"        # Название в админке (единственное число)
+        verbose_name_plural = "Endirimli Mehsullar" # Название во множественном числе
+        proxy = True 

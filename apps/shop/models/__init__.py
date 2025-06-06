@@ -5,4 +5,4 @@ from .brand import Brand
 from .category import Category
 from .social_network import SocialNetwork
 from .tag import Tag
-
+from .product import ProductByPrice, SalesProduct

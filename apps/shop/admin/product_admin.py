@@ -1,5 +1,5 @@
 from django.contrib import admin
-from ..models import Product
+from ..models import Product, ProductByPrice, SalesProduct
 from .product_gallery_admin import ProductGalleryInline
 from django.utils.html import mark_safe,format_html
 from django.templatetags.static import static
@@ -102,3 +102,15 @@ class ProductAdmin(admin.ModelAdmin):
         )
 
 
+@admin.register(ProductByPrice)
+class ProductByPriceAdmin(admin.ModelAdmin):
+    list_display = ['title', 'price']
+    ordering = ['-price']
+
+@admin.register(SalesProduct)
+class SalesProductAdmin(admin.ModelAdmin):
+    list_display = ['title', 'price']
+    # Можно сделать фильтрацию только по товарам со скидкой
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs.filter(discount__gt=0)    

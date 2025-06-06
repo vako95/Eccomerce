@@ -5,7 +5,7 @@ from ..models import Brand
 
 
 @admin.register(Brand)
-class ClassAdmin(admin.ModelAdmin):
+class BrandAdmin(admin.ModelAdmin):
     list_display = (
         "name_tag",
         "slug_with_link",

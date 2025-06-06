@@ -5,7 +5,7 @@ from ..models import Tag
 
 
 @admin.register(Tag)
-class ClassAdmin(admin.ModelAdmin):
+class TagAdmin(admin.ModelAdmin):
     list_display = (
         "name_tag",
         "slug_with_link",

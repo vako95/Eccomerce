@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   {% include 'public/partials/head.html' %}
+</head>
+
+<body>
+
+   {% include 'public/partials/preloader.html' %}
+
+   <header class="header">
+      {% include 'public/partials/topbar.html' %}
+      {% include 'public/partials/middlebar.html' %}
+      {% include 'public/partials/navbar.html' %}
+   </header>
+
+   <main class="main">
+   {% block content %}
+   {% endblock %}
+</main>
+{% include 'public/partials/footer.html' %}
+{% include 'public/partials/scroll.html' %}
+{% include 'public/partials/modal_quick.html' %}
+{% include 'public/partials/modal_popup.html' %}
+{% include 'public/partials/scripts.html' %}
+
+</body>
+
+</html>

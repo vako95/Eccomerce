@@ -1,7 +1,8 @@
-from .product import Product, ProductImage
+from .product import Product
+from .product_gallery import ProductGallery
 from .author import Author
-from .category import Category
 from .brand import Brand
+from .category import Category
+from .social_network import SocialNetwork
 from .tag import Tag
-from .social_networks import SocialNetwork
 

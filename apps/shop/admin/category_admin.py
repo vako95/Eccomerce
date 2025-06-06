@@ -5,7 +5,7 @@ from ..models import Category
 
 
 @admin.register(Category)
-class ClassAdmin(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         "name_tag",
         "slug_with_link",

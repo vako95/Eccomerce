@@ -1,0 +1,116 @@
+h1 {
+    color: greenyellow !important;
+}
+
+/* Poster */
+.preview__link{
+    width: 80px;
+    height: 60px;
+    border-bottom:  4px solid transparent;
+}
+.preview__link:hover{
+    animation: bolify 4s ease infinite;
+}
+.preview__image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+}
+.preview__image::before{
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border:  2px solid #417690;
+}
+
+@keyframes bolify {
+    0% {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #417690;
+    }
+    100% {
+        border-color: transparent;
+    }
+}
+
+.price{
+    color: #7dda12;
+}
+th.column-price_tag{
+    color: #7dda12;
+}
+th.column-discount_tag{
+    color: #F4CA16;
+}
+.discount{
+    color: #F4CA16;
+}
+th.column-tax_tag{
+    color: #168cf4;
+}
+.tax{
+    color: #168cf4;
+}
+.final_price{
+    color: #34b09d !important;
+}
+th.column-final_price_tag {
+    color: #34b09d !important;
+}
+
+
+.preview__link_social {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.preview__link_social:hover {
+    animation: social 2s ease infinite;
+}
+
+.preview__image_social {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+  
+@keyframes social {
+    0% {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #417690;
+    }
+    100% {
+        border-color: transparent;
+    }
+}
+
+th.column-social_tag{
+    color: #1a73e8 ;
+}
+th.column-logo_tag{
+    color: #1a73e8 ;
+}
+th.column-created_tag{
+    color: rgb(10, 115, 8);
+}
+.time_create {
+    color: rgb(0, 81, 255);
+}
+.time_update {
+    color: rgb(0, 255, 119);
+}
+
+th.column-updated_tag{
+    color: rgb(183, 199, 7);
+}

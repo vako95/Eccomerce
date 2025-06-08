@@ -106,11 +106,16 @@ class ProductAdmin(admin.ModelAdmin):
 class ProductByPriceAdmin(admin.ModelAdmin):
     list_display = ['title', 'price']
     ordering = ['-price']
+    exclude = ("title","slug","poster", "author", "category", "tag","social_network","brand","content")
 
 @admin.register(SalesProduct)
 class SalesProductAdmin(admin.ModelAdmin):
-    list_display = ['title', 'price']
-    # Можно сделать фильтрацию только по товарам со скидкой
+    list_display = ['title', 'price',"discount","final_price"]
+    exclude = ("slug","poster")
+
     def get_queryset(self, request):
         qs = super().get_queryset(request)
-        return qs.filter(discount__gt=0)    
+        return qs.filter(discount__gt=0)
+
+    def final_price(self, obj):
+        return obj.get_final_price()     

@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/django
 # Edit at https://www.toptal.com/developers/gitignore?templates=django
 
+.env
+views.py
 ### Django ###
 *.log
 *.pot
@@ -89,6 +91,7 @@ target/
 
 # Jupyter Notebook
 .ipynb_checkpoints
+
 
 # IPython
 profile_default/

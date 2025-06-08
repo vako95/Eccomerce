@@ -1714,6 +1714,7 @@ label {
 
 /* main category */
 .main-category{
+  display: none;
   position: absolute;
   left: 0;
   top: 63px;
@@ -1723,6 +1724,7 @@ label {
   background: var(--color-white);
   box-shadow: var(--box-shadow);
   z-index: 2;
+  
 }
 
 .main-category li{
@@ -4442,6 +4444,7 @@ label {
 }
 
 .product-img{
+  min-height: 280px;
   position: relative;
 }
 
@@ -4701,7 +4704,8 @@ label {
 }
 
 .item-list .product-img{
-  width: 220px;
+
+  height: 220px;
 }
 
 .item-list .product-content{
